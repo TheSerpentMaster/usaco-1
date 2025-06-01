@@ -4,8 +4,16 @@ N = int(input())
 output = []
 
 def calc_exp(factors: dict):
-    for factor in factors.keys():
-        pass
+    count = 0
+    count = str(count)
+
+    while True:
+        for digit in range(len(count)):
+            if int(count[digit]) + 1 == factors.keys()[digit]:
+                if digit == len(count) - 1:
+                    break
+                
+            count[digit] = str(int(digit + 1))
 
 def sleepconstant(input_: list, number: int):
     a = 0
