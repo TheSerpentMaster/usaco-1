@@ -1,3 +1,5 @@
+# USACO February 2022 Bronze #1: Sleeping in Class
+
 import math
 
 N = int(input())
