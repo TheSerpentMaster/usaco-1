@@ -3,19 +3,8 @@ import math
 N = int(input())
 output = []
 
-def calc_exp(factors: dict):
-    count = 0
-    count = str(count)
-
-    while True:
-        for digit in range(len(count)):
-            if int(count[digit]) + 1 == factors.keys()[digit]:
-                if digit == len(count) - 1:
-                    break
-                
-            count[digit] = str(int(digit + 1))
-
 def sleepconstant(input_: list, number: int):
+    steps = 0
     a = 0
 
     for num in input_:
@@ -23,32 +12,25 @@ def sleepconstant(input_: list, number: int):
 
         if a == number:
             a = 0
-
+            steps -= 1
+ 
         elif a > number:
             return False
+        
+        steps += 1
     
-    return True
+    return steps
 
 def factorize(num: int):
-    i = 2
+    i = 1
     number = num
-    factors = {}
+    factors = []
 
     while i <= math.sqrt(num):
         if number % i == 0:
-            if i in factors.keys():
-                factors[i] += 1
-                number /= i
-            
-            else:
-                factors[i] = 1
-                number /= i
-
-        else:
-            i += 1
-        
-    if number > 1:
-        factors[int(number)] = 1
+            factors.append(i)
+            factors.append(int(num / i))
+        i += 1
     
     return factors
 
@@ -58,25 +40,27 @@ for case in range(N):
 
     if set(classes) == set(classes[0]):
         output.append(0)
-
         continue
 
     for num in range(len(classes)):
         classes[num] = int(classes[num])
 
     factors = factorize(sum(classes))
+    factors.sort()
+    #print(factors)
 
-    num = 1
-    for factor in list(factors.keys()):
-        for _ in range(1, factors[factor] + 1):
-            num *= factor
-            sleep = sleepconstant(classes, num)
+    for factor in factors:
+        sleep = sleepconstant(classes, factor)
+        #print("sleep", sleep)
+        
+        if sleep:
+            output.append(sleep)
+            break
 
-            if sleep:
-                output.append(sleep)
-                break
-            
-    output.append(len(classes))
+    if len(output) == case:
+        output.append(len(classes) - 1)
+
+#print(output)
 
 for case in output:
     print(case)

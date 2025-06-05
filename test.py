@@ -1,23 +1,16 @@
 import math
 
-def sleepconstant(input_: list, number: int):
-    a = 0
-    count = 0
+def factorize(num: int):
+    i = 1
+    number = num
+    factors = []
 
-    for num in input_:
-        a += num
-        count += 1
-
-        if a == number:
-            count -= 1
-            a = 0
-
-        elif a > number:
-            return False
+    while i <= math.sqrt(num):
+        if number % i == 0:
+            factors.append(i)
+            factors.append(int(num / i))
+        i += 1
     
-    if a != 0:
-        return False
+    return factors
 
-    return count
-
-print(sleepconstant([2, 2, 3], 3))
+print(factorize(91))
