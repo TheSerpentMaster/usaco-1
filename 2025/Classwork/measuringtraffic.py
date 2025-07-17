@@ -3,4 +3,4 @@
 trafficinput = ''
 
 with open("traffic.in", 'r+') as input_:
-    trafficinput = input_.readlines().strip().split()
+    trafficinput = input_.read().strip().split()
