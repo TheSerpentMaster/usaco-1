@@ -11,3 +11,12 @@ def BubbleSort(arr):
         if not swapped:
             break
     return arr
+
+# Example usage:
+
+if __name__ == "__main__":
+    arr = [64, 34, 25, 12, 22, 11, 90]
+    print("Unsorted array:", arr)
+    sorted_arr = BubbleSort(arr)
+    print("Sorted array:", sorted_arr)
+    # Output: Sorted array: [11, 12, 22, 25, 34, 64, 90]
