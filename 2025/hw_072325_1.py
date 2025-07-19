@@ -1,4 +1,4 @@
-## USACO 2021 January Contest Bronze #3: Measuring Traffic
+# USACO 2021 January Contest Bronze #3: Measuring Traffic
 
 n = int(input())
 count = 1
@@ -10,13 +10,13 @@ for i in range(n):
 cows = input().split()
 stalls = input().split()
 
-stalls.sort()
-
 for cow in range(n):
     cows[cow] = int(cows[cow])
 
 for stall in range(n):
     stalls[stall] = int(stalls[stall])
+
+stalls.sort()
 
 for cow in range(len(cows)):
     for stall in range(len(stalls)):
