@@ -25,6 +25,6 @@ for cow in range(len(cows)):
 
 
 for i in range(len(cows)):
-    count=count*(countlist[i]-i)
+    count = count*(countlist[i]-i)
 
 print(count)
