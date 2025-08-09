@@ -1,0 +1,1 @@
+# USACO 2022 January Bronze #2: Cannonball
