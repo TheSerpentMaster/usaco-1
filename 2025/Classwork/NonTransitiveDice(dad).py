@@ -11,24 +11,21 @@ def win(a, b):
         for num2 in b:
             if num1 > num2:
                 score1 += 1
-            
             elif num1 < num2:
                 score2 += 1
 
     if score1 > score2:
         return 1
-    
     if score1 < score2:
         return -1
     return 0
 
 def find(a, b):
-    for num1 in range(1, 11):
-        for num2 in range(1, 11):
-            for num3 in range(1, 11):
-                for num4 in range(1, 11):
-                    dice = (num1,num2,num3,num4)
-
+    for x in range(1, 11):
+        for y in range(1, 11):
+            for z in range(1, 11):
+                for k in range(1, 11):
+                    dice = (x, y, z, k)
                     if win(dice, a) == 1 and win(b, dice) == 1:
                         return True
     return False
@@ -41,7 +38,6 @@ for _ in range(k):
 
     for i in range(len(dice_a)):
         dice_a[i] = int(dice_a[i])
-    
     for i in range(len(dice_b)):
         dice_b[i] = int(dice_b[i])
 
@@ -49,10 +45,8 @@ for _ in range(k):
 
     if winning == 0:
         results.append("no")
-
     elif winning == 1 and find(dice_a, dice_b):
         results.append("yes")
-        
     elif winning == -1 and find(dice_b, dice_a):
         results.append("yes")
     else:
