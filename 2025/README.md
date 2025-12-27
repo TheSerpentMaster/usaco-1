@@ -1,1 +1,1 @@
-This folder contains all the files of the USACO contests I completed in the year 2025
+This folder contains all the files of the USACO contests completed in the year 2025
